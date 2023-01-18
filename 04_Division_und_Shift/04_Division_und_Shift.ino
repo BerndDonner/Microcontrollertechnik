@@ -1,21 +1,3 @@
-/** Zeitmessung: jetzt fangen wir an zu spinnen ... */
-
-/* Durch timer2 gibt es einen overhead, der natürlich selber clockcycles
- * frisst. Evtl könnte man versuchen diesen overhead durch inlinen von
- * timer2.reset() und timer2.get_count() noch weiter zu reduzieren.
- * Aber diesen overhead kann man sowieso herausrechnen indem man die
- * Zeit 8 mal b += a mit der Zeit 16 mal b += a vergleicht!
- *
- * Ergebnisse:
- * Ein b += a braucht:
- * unsigned char:      7/8 * 0.5us -> 7  clockcycle
- * unsigned int:       7/4 * 0.5us -> 14 clockcycle
- * unsigned long:      7/2 * 0.5us -> 28 clockcycle
- * unsigned long long: 9   * 0.5us -> 72 clockcycle
- *
- * 1 clockcycle entspricht 0.0625us
- */
-                      
 #define MEASURE_START   noInterrupts();     \
                         TCCR1A = 0;         \
                         TCCR1B = 1 << CS10; \
@@ -29,34 +11,46 @@
 
   
 
-
-typedef unsigned char integer_to_test;
-
 void setup()
 {
   Serial.begin(9600);
-}
 
+  volatile int32_t a = 0xffff;
+  volatile int32_t b = 0x0002;
+  volatile int32_t c = 0x0001; //Zusammenhang zwischen c und b: b = 2^c
+  
+  int32_t e;
 
-//#pragma GCC push_options
-//#pragma GCC optimize ("-O0")
-
-void loop()
-{
-  volatile integer_to_test a = 0x7;
-  volatile integer_to_test b = 0xff;
   unsigned int cycles;
 
   MEASURE_START
   
-  b = b + a + a;
+  e = a >> c;
   
   MEASURE_STOP(cycles, 1)
 
   delay(10);
-  Serial.print("Benoetigte Zeit: ");
+  Serial.print("Ergebnis Shift: ");
+  Serial.println(e);
+  Serial.print("Benoetigte Takte Shift: "); //27 cycles!!!
   Serial.println(cycles);
+
+  MEASURE_START
+  
+  e = a / b;
+  
+  MEASURE_STOP(cycles, 1)
+
+  delay(10);
+  Serial.print("Ergebnis Division: ");
+  Serial.println(e);
+  Serial.print("Benoetigte Takte Division: "); //654 cycles!!
+  Serial.println(cycles);
+
 }
 
-//#pragma GCC pop_options
 
+
+void loop()
+{
+}
