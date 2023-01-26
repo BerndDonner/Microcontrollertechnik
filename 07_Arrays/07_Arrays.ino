@@ -11,6 +11,23 @@ char text2 [5][4];
 
 
 //Die Implementation dieser Funktion ist nicht ganz einfach und ist _nicht_ schulaufgabenrelevant!
+
+void ausgabe(void* ptr, uint8_t im, uint8_t jm)
+{
+  char (*text)[jm] = ptr;
+
+  for (uint8_t i = 0; i < im; i++)
+  {
+    for (uint8_t j = 0; j < jm; j++)
+    {
+      Serial.print(text[i][j]); 
+      Serial.print("\t");
+    }
+    Serial.println();
+  }
+}
+
+/*
 void ausgabe(char* text, uint8_t im, uint8_t jm)
 {
   for (uint8_t i = 0; i < im; i++)
@@ -23,14 +40,14 @@ void ausgabe(char* text, uint8_t im, uint8_t jm)
     Serial.println();
   }
 }
-
+*/
 
 void setup()
 {
   Serial.begin(9600);
 
   Serial.println("Original Array: ");
-  ausgabe(text[0], 5, 4);
+  ausgabe(text, 5, 4);
 
   for (uint8_t i = 0; i < 5; i++)
   {
@@ -40,7 +57,7 @@ void setup()
     }
   }
   Serial.println("Modifiziertes Array: ");
-  ausgabe(text2[0], 5, 4);
+  ausgabe(text2, 5, 4);
 }
 
 
