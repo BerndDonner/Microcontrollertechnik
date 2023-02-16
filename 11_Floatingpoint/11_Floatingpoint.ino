@@ -98,11 +98,13 @@ void vergleich_float_richtig()
 void setup() {
   Serial.begin(9600);
 
-  vergleich_float();
-  bitmuster_float();
-  epsilon_float();
+//  vergleich_float();
+  
+//  bitmuster_float();  
+//  epsilon_float();
   zuweisung_float();
-  vergleich_float_richtig();
+//  vergleich_float_richtig();
+
  }
 
 

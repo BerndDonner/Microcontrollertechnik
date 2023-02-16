@@ -30,30 +30,45 @@
   
 
 
-//#pragma GCC push_options
-//#pragma GCC optimize ("-O0")
-
 typedef unsigned char integer_to_test;
 
 void setup()
 {
   Serial.begin(9600);
-  volatile integer_to_test a = 0x7;
-  volatile integer_to_test b = 0xff;
   
+  volatile int32_t a = 0x7;
+  volatile int32_t b = 0xff;
+  volatile float x = 0.1234;
+  volatile float y = 782314.5E2;
   unsigned int cycles = 0;
 
   MEASURE_START
   
-  b = b + a + a;
+  a = a+b;
   
   MEASURE_STOP(cycles, 1)
 
   delay(10);
-  Serial.print("Benoetigte Zeit: ");
+  Serial.print("Benoetigte Zeit Int32: ");
   Serial.println(cycles);
+
+  cycles = 0;
+
+  MEASURE_START
+  
+  x = x+y;
+  
+  MEASURE_STOP(cycles, 1)
+
+  delay(10);
+  Serial.print("Benoetigte Zeit Float: ");
+  Serial.println(cycles);
+
 }
 
+
+//#pragma GCC push_options
+//#pragma GCC optimize ("-O0")
 
 void loop()
 {
