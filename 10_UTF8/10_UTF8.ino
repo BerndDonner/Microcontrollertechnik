@@ -12,7 +12,7 @@
 
 void setup()
 {
-  Serial.begin(500000); //Die aktuelle adruino IDE 2.0.3 hat einen Bug: https://github.com/arduino/arduino-ide/pull/1758
+  Serial.begin(9600); //Die Adruino IDE 2.0.3 hat einen Bug: https://github.com/arduino/arduino-ide/pull/1758 (workaround: baud 500000). In Version 2.0.4 behoben.
   const char* text1 = "ü";
   const char* text2 = u8"\u00F6\U0010FFFF"; 
   char ok[] = "\nDrü Chünüsün müt düm Cüntrübüs.";
