@@ -267,7 +267,7 @@ void setup()
 
   uint8_t zeichen[FONT_BREITE];
   
-  if (sizeof(font) % FONT_BREITE != 0)                          //dies wird normalerweise mit assert gelöst!
+  if (sizeof(font) % FONT_BREITE != 0)                          //dies wird normalerweise mit assert gelöst! <--------- was ist mit sizeof PROGMEM???
   {
     Serial.println(F("Das Font-Array hat keine Größe, die ein Vielfaches von 5 ist! Fontgröße nicht 5x8???"));
     abort();
@@ -275,7 +275,7 @@ void setup()
 
   for (uint16_t k = 0; k < sizeof(font)/FONT_BREITE; ++k)
   {
-    for (uint8_t i = 0; i < FONT_BREITE; ++i) zeichen[i] = pgm_read_byte(font + k*FONT_BREITE + i);
+    for (uint8_t i = 0; i < FONT_BREITE; ++i) zeichen[i] = pgm_read_byte(font + k*FONT_BREITE + i); //<---------------------   displayInt = charSet[j]; <-----> displayInt = pgm_read_word(charSet + j);
 
     Serial.print(k);
     Serial.println(F(".tes Zeichen:"));
