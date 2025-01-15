@@ -16,10 +16,10 @@ void setup()
 {
   pinMode(ledPin, OUTPUT);
   pinMode(interruptPin0, INPUT_PULLUP); //INPUT_PULLUP heißt: mit einem internen 10kOhm Wiedersstand mit 5V verbunden. D.h im unbeschaltenten Zustand: HIGH
-  cli();
+  cli(); //noInterrupts();
   EICRA = (1<<ISC00);	// Interrupt INT0 wird bei jeder Flanke ausgelöst (siehe EICRA Register im Datenblatt) 
   EIMSK = (1<<INT0);  // Interrupt INT0 setzen
-  sei();
+  sei(); //interrupts();
 }
 
 
