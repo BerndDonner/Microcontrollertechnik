@@ -29,3 +29,12 @@ void loop() {
   Serial.println(i);
   i++;
 }
+
+/*
+EICRA |=  (1<<ISC01);
+
+#define EICRA _SFR_MEM8(0x69)
+#define _SFR_IO8(io_addr) (*(volatile uint8_t *)(0x20 + (io_addr)))
+
+(*(volatile uint8_t *)(0x89)) |= (1<<ISC01);
+*/
