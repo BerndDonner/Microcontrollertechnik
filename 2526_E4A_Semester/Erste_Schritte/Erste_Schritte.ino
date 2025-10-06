@@ -2,10 +2,15 @@
 
 
 void setup() {
-  int8_t wiesn;  //Deklaration von wiesn
   Serial.begin(9600);
   Serial.println("Hallo E3A");
-  Serial.println(wiesn);
+  for (int8_t wiesn = 123; (uint8_t) wiesn <= 133; ++wiesn) {  //Deklaration und Initialisierung von wiesn
+    Serial.print(wiesn);
+    Serial.print("\t");
+    Serial.print((uint8_t) wiesn, BIN);
+    Serial.print("\t");
+    Serial.println((uint8_t) ~wiesn, BIN); //Einserkomplement
+  }
 }
 
 void loop() {
