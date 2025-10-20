@@ -1,15 +1,33 @@
-\build
-\.vscode
+# ------------------------------------------------------
+# 🏗️ Build-Verzeichnisse
+# Ignoriere alle Ordner namens "build" – egal wo sie liegen
+**/build/
+
+# ------------------------------------------------------
+# 🧩 VS Code Konfiguration
+# Ignoriere alle VS Code-Konfigurationsordner (.vscode)
+**/.vscode/
+
+# ------------------------------------------------------
+# 🍏 macOS-Systemdateien
+# Ignoriere alle von macOS automatisch erzeugten .DS_Store-Dateien
 .DS_Store
 
-# Schüler Ordner, die nicht gepullt werden sollen
-Übung ED
-Anian Weber
-Ludwig M
-Sgt.Dosenbier
-Übungen_MCT_LB
-ÜbungAB
-Antonia
-Anian_Projekte
-Übungen_KW
-lukas werner
+# ------------------------------------------------------
+# 👩‍🏫 Schülerordner (können überall im Projekt liegen)
+# Diese Verzeichnisse enthalten Schülerarbeiten und sollen
+# nicht im zentralen Lehrer-Repository versioniert werden.
+# Das führende **/ sorgt dafür, dass die Ordner in beliebiger
+# Verzeichnistiefe ignoriert werden.
+
+**/Übung ED/
+**/Anian Weber/
+**/Ludwig M/
+**/Sgt.Dosenbier/
+**/Übungen_MCT_LB/
+**/ÜbungAB/
+**/Antonia/
+**/Anian_Projekte/
+**/Übungen_KW/
+**/lukas werner/
+
