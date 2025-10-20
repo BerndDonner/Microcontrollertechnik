@@ -1,10 +1,11 @@
 \build
 \.vscode
+.DS_Store
 
 # Schüler Ordner, die nicht gepullt werden sollen
 Übung ED
 Anian Weber
-Ludwig M.
+Ludwig M
 Sgt.Dosenbier
 Übungen_MCT_LB
 ÜbungAB

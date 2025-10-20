@@ -1,5 +1,4 @@
-void setup() {
-  Serial.begin(9600);
+void uebungung1_10() {
   Serial.println("1.te Aufgabe:");
   Serial.println(47, HEX);
   Serial.println("2.te Aufgabe:");
@@ -18,7 +17,18 @@ void setup() {
   Serial.println(0xfa, BIN);
   Serial.println((uint8_t) ~0xfa, BIN);
   Serial.println("9.te Aufgabe:");
+  Serial.println(69, BIN);
+  Serial.println((uint8_t) ~69, BIN);
   Serial.println("10.te Aufgabe:");
+  Serial.println(~69 + 1);
+  Serial.println((uint8_t) ~69 + 1, BIN);
+}
+
+void setup() {
+  Serial.begin(9600);
+  uebungung1_10();
+
+  DDRD & ~((1 << PD2) | (1 << PD3)); //<--- TODO
   
 
   // put your setup code here, to run once:
