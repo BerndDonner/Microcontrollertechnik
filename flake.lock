@@ -1,0 +1,134 @@
+{
+  "nodes": {
+    "bootdev-cli": {
+      "flake": false,
+      "locked": {
+        "path": "./pkgs/bootdev-cli",
+        "type": "path"
+      },
+      "original": {
+        "path": "./pkgs/bootdev-cli",
+        "type": "path"
+      },
+      "parent": [
+        "nixos-config"
+      ]
+    },
+    "context": {
+      "flake": false,
+      "locked": {
+        "path": "./pkgs/context",
+        "type": "path"
+      },
+      "original": {
+        "path": "./pkgs/context",
+        "type": "path"
+      },
+      "parent": [
+        "nixos-config"
+      ]
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixos-config",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1758463745,
+        "narHash": "sha256-uhzsV0Q0I9j2y/rfweWeGif5AWe0MGrgZ/3TjpDYdGA=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "3b955f5f0a942f9f60cdc9cacb7844335d0f21c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-25.05",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "lib": {
+      "flake": false,
+      "locked": {
+        "path": "./lib",
+        "type": "path"
+      },
+      "original": {
+        "path": "./lib",
+        "type": "path"
+      },
+      "parent": [
+        "nixos-config"
+      ]
+    },
+    "nixos-config": {
+      "inputs": {
+        "bootdev-cli": "bootdev-cli",
+        "context": "context",
+        "home-manager": "home-manager",
+        "lib": "lib",
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable"
+      },
+      "locked": {
+        "lastModified": 1761428892,
+        "narHash": "sha256-uwxxe/Jvto2Go0bWTpYz8e4LviAw47LYHvA2/DhOaFA=",
+        "owner": "BerndDonner",
+        "repo": "NixOS-Config",
+        "rev": "0a19d324cd7b8ad6c29f7ed9693b0ee8be368134",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BerndDonner",
+        "repo": "NixOS-Config",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1760580664,
+        "narHash": "sha256-/YdfibIrnqXAL8p5kqCU345mzpHoOtuVIkMiI2pF4Dc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "98ff3f9af2684f6136c24beef08f5e2033fc5389",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1760596604,
+        "narHash": "sha256-J/i5K6AAz/y5dBePHQOuzC7MbhyTOKsd/GLezSbEFiM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3cbe716e2346710d6e1f7c559363d14e11c32a43",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixos-config": "nixos-config",
+        "nixpkgs": [
+          "nixos-config",
+          "nixpkgs"
+        ]
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
