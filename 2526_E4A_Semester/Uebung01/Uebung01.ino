@@ -1,3 +1,5 @@
+#include "donner.h"
+
 void uebungung1_10() {
   Serial.println("1.te Aufgabe:");
   Serial.println(47, HEX);
@@ -26,10 +28,46 @@ void uebungung1_10() {
 
 void setup() {
   Serial.begin(9600);
-  uebungung1_10();
+//  uebungung1_10();
 
   DDRD & ~((1 << PD2) | (1 << PD3)); //<--- TODO
+
+  Serial.print("PD2: ");
+  Serial.println(PD2);
+
+  Serial.print("PD3: ");
+  Serial.println(PD3);
   
+  Serial.print("1:\t\t");
+  printBin((uint8_t) 1);
+  
+  Serial.print("1 << PD2:\t");
+  printBin((uint8_t) (1 << PD2));
+ 
+  Serial.print("1 << PD3:\t");
+  printBin((uint8_t) (1 << PD3));
+
+  Serial.print("(1 << PD2) | (1 << PD3):\t");
+  printBin((uint8_t) ((1 << PD2) | (1 << PD3)));
+
+  Serial.print("~(1 << PD2) | (1 << PD3):\t");
+  printBin((uint8_t) (~((1 << PD2) | (1 << PD3))));
+
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+
+  Serial.print("DDRD: \t\t");
+  printBin((uint8_t) DDRD);
+
+  DDRD = DDRD & ~((1 << PD2) | (1 << PD3)); //<--- TODO
+
+  Serial.print("DDRD: \t\t");
+  printBin((uint8_t) DDRD);
+ 
 
   // put your setup code here, to run once:
 
