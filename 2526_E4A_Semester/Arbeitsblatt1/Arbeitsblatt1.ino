@@ -19,10 +19,11 @@ void setup() {
   Serial.println((uint16_t) &a, HEX);
   Serial.println((uint16_t) &b, HEX);
 
-  Serial.println("Test:");
+  Serial.println("Aufgabe 2.4:");
 
-  Serial.println((uint8_t) *((uint8_t*) &a), HEX);
-  Serial.println((uint8_t) *((uint8_t*) &a +1), HEX);
+  b = (char *) &a;  
+
+
 }
 
 void loop() {
