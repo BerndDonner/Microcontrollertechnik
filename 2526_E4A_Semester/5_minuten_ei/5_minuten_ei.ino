@@ -1,8 +1,16 @@
 #include "donner.h"
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Jetzt geht's los!!!");
+  TCCR2A = 0;
+  TCCR2B = 0;
+  //TCCR2A &= ~(1 << WGM21) & ~(1 << WGM20);
+  //TCCR2A &= ~((1 << WGM21) | (1 << WGM20));
+  TCCR2B |= (1 << CS20) | (1 << CS21) | (1 << CS22); //Prescaler 1024
+  //TCCR2B &= ~(1 << WGM22);
+
+  TCNT2 = 0;
 }
 
 
