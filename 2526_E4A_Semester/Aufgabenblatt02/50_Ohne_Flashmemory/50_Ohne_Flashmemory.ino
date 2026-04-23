@@ -1,4 +1,4 @@
-const uint8_t font[] = {
+const uint8_t font[] PROGMEM = {
 	0x00, 0x00, 0x00, 0x00, 0x00,
 	0x3E, 0x5B, 0x4F, 0x5B, 0x3E,
 	0x3E, 0x6B, 0x4F, 0x6B, 0x3E,
@@ -258,7 +258,7 @@ const uint8_t font[] = {
 	0x00, 0x00, 0x00, 0x00, 0x00  // #255 NBSP
 };
 
-#define FONT_BREITE 5
+const uint8_t FONT_BREITE = 5;
 #define FONT_HOEHE  8
   
 void setup()
@@ -269,7 +269,7 @@ void setup()
   
   if (sizeof(font) % FONT_BREITE != 0)                          //dies wird normalerweise mit assert gelöst!
   {
-    Serial.println("Das Font-Array hat keine Größe, die ein Vielfaches von 5 ist! Fontgröße nicht 5x8???");
+    Serial.println(F("Das Font-Array hat keine Größe, die ein Vielfaches von 5 ist! Fontgröße nicht 5x8???"));
     abort();
   }
 
@@ -278,19 +278,19 @@ void setup()
     for (uint8_t i = 0; i < FONT_BREITE; ++i) zeichen[i] = font[k*FONT_BREITE+i];
 
     Serial.print(k);
-    Serial.println(".tes Zeichen:");
+    Serial.println(F(".tes Zeichen:"));
 
     for (uint8_t j = 0; j < FONT_HOEHE; ++j)
     {
       for (uint8_t i = 0; i < FONT_BREITE; ++i)
       {
-        if (zeichen[i] & 0x01) Serial.print("X");
-        else Serial.print(" ");
+        if (zeichen[i] & 0x01) Serial.print(F("X"));
+        else Serial.print(F(" "));
         zeichen[i] = zeichen[i] >> 1;
       }
-      Serial.print("\n");
+      Serial.print(F("\n"));
     }
-    Serial.print("\n\n\n");
+    Serial.print(F("\n\n\n"));
   } 
 }
 
