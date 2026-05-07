@@ -16,9 +16,7 @@ constexpr uint8_t ANZAHL = 10;
 constexpr uint8_t notaus_pin = 2;
 
 void setup() {
-  Serial.begin(115200);
-  pinMode(notaus_pin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(notaus_pin), stopp, FALLING);
+  Serial.begin(9600);
 }
 
 void stopp() {
