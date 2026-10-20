@@ -18,7 +18,7 @@
       };
 
       # 🧩 Arduino shell template from your nixos-config lib
-      arduinoDev = import (nixos-config + "/lib/arduino-develop.nix");
+      arduinoDev = nixos-config.lib.mkArduinoDevShell;
     in
     {
       devShells.${system} = {
